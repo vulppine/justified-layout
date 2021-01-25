@@ -5,9 +5,9 @@
 	<script type="text/javascript" src="dist/justified-layout.js"></script>
 	<script type="text/javascript">
 
-		document.addEventListener('DOMContentLoaded', function() {
+		document.addEventListener('DOMContentLoaded', async function() {
 
-			var justifiedLayout = require('justified-layout');
+			justifiedLayout = await import('/js/layout.js');
 
 			var demos = [
 				{
@@ -39,7 +39,7 @@
 				`;
 				document.body.appendChild(section);
 
-				var geometry = justifiedLayout(demo.sizes, demo.config);
+				var geometry = justifiedLayout.justifyLayout(demo.sizes, demo.config);
 
 				console.log("geometry", geometry);
 				var boxes = geometry.boxes.map(function (box) {
